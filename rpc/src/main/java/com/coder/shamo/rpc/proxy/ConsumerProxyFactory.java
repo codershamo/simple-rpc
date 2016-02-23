@@ -31,7 +31,7 @@ public class ConsumerProxyFactory implements InvocationHandler {
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Class interfaceClass = proxy.getClass().getInterfaces()[0];
-        String req = formater.reqFormater(interfaceClass, method.getName(), args[0]);
+        String req = formater.reqFormater(interfaceClass, method.getName(), args);
         String resp = invoker.request(req, consumerConfig);
         return parser.rspParser(resp);
     }

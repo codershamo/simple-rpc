@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
-    public String print(User user) {
+    public String print(User user, String shamo) {
 //        System.out.println(user.toString());
-        return user.toString();
+        return user.toString()+shamo;
     }
 }
