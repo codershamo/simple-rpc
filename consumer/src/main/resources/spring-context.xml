@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <context:component-scan base-package="com.coder.shamo.consumer"/>
+    <context:annotation-config/>
+
+    <bean id="consumerConfig" class="com.coder.shamo.rpc.invoke.ConsumerConfig">
+        <property name="url" value="http://127.0.0.1:8888/invoke"/>
+    </bean>
+
+    <bean id="userServiceInvoker" class="com.coder.shamo.rpc.proxy.ConsumerProxyFactory">
+        <property name="consumerConfig" ref="consumerConfig"/>
+        <property name="clazz" value="com.coder.shamo.api.UserService"/>
+    </bean>
+
+    <bean id="userService" factory-bean="userServiceInvoker" factory-method="create"/>
+
+</beans>

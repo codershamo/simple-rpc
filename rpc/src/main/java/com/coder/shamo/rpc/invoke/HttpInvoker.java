@@ -33,7 +33,7 @@ public class HttpInvoker implements Invoker {
         PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
         cm.setMaxTotal(200);
         cm.setDefaultMaxPerRoute(20);
-        HttpHost localhost = new HttpHost("localhost", 8080);
+        HttpHost localhost = new HttpHost("localhost", 8888);
         cm.setMaxPerRoute(new HttpRoute(localhost), 50);
         return HttpClients.custom()
                 .setConnectionManager(cm)

@@ -12,6 +12,8 @@ import com.coder.shamo.rpc.serialize.Request;
  */
 public class JsonFormater implements Formater {
 
+    public static final Formater formater = new JsonFormater();
+
     public String reqFormater(Class clazz, String method, Object param) {
         Request request = new Request();
         request.setParam(param);
