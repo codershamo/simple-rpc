@@ -1,0 +1,28 @@
+/* * Copyright (c) 2014 Qunar.com. All Rights Reserved. */
+package com.coder.shamo.rpc.exception;
+
+/**
+ * @author xuefeng.sha  Date: 2016/2/1 Time: 17:03
+ * @version $Id$
+ */
+public enum RpcExceptionCodeEnum {
+    DATA_PARSER_ERROR("DATA_PARSER_ERROR", "数据转换异常"),
+    NO_BEAN_FOUND("NO_BEAN_FOUND", "没有找到bean对象"),
+    INVOKE_REQUEST_ERROR("INVOKE_REQUEST_ERROR", "PRC请求异常");
+
+    private String code;
+    private String msg;
+
+    RpcExceptionCodeEnum(String code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+}
